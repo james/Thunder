@@ -90,12 +90,22 @@
 	[mapView addAnnotation:placemark];
 }
 
+/*
 - (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation{
 	MKPinAnnotationView *annView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"currentloc"];
 	annView.animatesDrop=TRUE;
 	return annView;
 }
+*/
 
+- (IBAction)dropPin:(id)sender{
+	CLLocationCoordinate2D location2=mapView.userLocation.coordinate;
+	location2.latitude=51.523567;
+	location2.longitude=-0.078602;
+	geoCoder=[[MKReverseGeocoder alloc] initWithCoordinate:location2];
+	geoCoder.delegate=self;
+	[geoCoder start];
+}
 
 
 @end

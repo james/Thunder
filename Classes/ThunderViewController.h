@@ -18,4 +18,6 @@
 
 - (IBAction)changeType:(id) sender;
 
+- (IBAction)dropPin:(id)sender;
+
 @end
